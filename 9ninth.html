@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Git Branch Basics: Create, Switch, Merge, Delete</title>
+</head>
+
+<body>
+
+    <div>
+        <h1>Git Branch – Overview</h1>
+
+        <h2>1. What is a Branch in Git?</h2>
+        <p>
+            A branch in Git is simply a <strong>pointer to a commit</strong>.
+        </p>
+        <p>
+            It allows you to work on different versions of your project <strong>independently</strong>.
+        </p>
+        <p>
+            The default branch name in Git is usually <code>main</code> or <code>master</code>.
+        </p>
+        <p>
+            Think of a branch as a <strong>separate workspace</strong> where you can make changes without affecting the
+            main project.
+        </p>
+
+        <p><strong>📌 Example:</strong><br>
+            If <code>main</code> branch has stable production code, you can create a <code>feature/login</code> branch
+            to work on a login system without disturbing <code>main</code>.
+        </p>
+
+        <h2>2. Need for Branches</h2>
+        <p>Branches are essential because they:</p>
+        <ul>
+            <li><strong>Enable parallel development</strong> – Different team members can work on different features at
+                the same time.</li>
+            <li><strong>Avoid breaking main code</strong> – New code is tested in a branch before merging.</li>
+            <li><strong>Support experimentation</strong> – Try out new ideas without affecting the working version.</li>
+            <li><strong>Improve collaboration</strong> – Each developer can push their branch and collaborate via Pull
+                Requests (PRs).</li>
+            <li><strong>Simplify bug fixing</strong> – Create a <code>bugfix/</code> branch to fix issues without
+                touching other ongoing features.</li>
+        </ul>
+    </div>
+
+    <hr>
+    <h1>Git Branch Basics</h1>
+
+    <p>This page explains how to <b>create</b>, <b>switch</b>, <b>merge</b>, and <b>delete</b> branches in Git, with
+        simple examples using the <code>main</code> branch.</p>
+
+    <h2>1) Create a Branch</h2>
+    <p>Create a new branch from your current branch (e.g., from <code>main</code>):</p>
+    <pre>
+# From main
+git checkout main
+git pull
+
+# Create branch (two options)
+git branch feature-ui
+# OR create and switch immediately:
+git switch -c feature-ui
+# (older syntax) git checkout -b feature-ui
+    </pre>
+
+    <p><b>Extra Examples:</b></p>
+    <ul>
+        <li><code>git switch -c third</code> → Creates a new branch named <code>third</code> and switches to it in one step.</li>
+        <li><code>git checkout -b branch1</code> → Older syntax that also creates a new branch named <code>branch1</code> and switches to it.</li>
+    </ul>
+
+    <p>Verify it exists:</p>
+    <pre>
+git branch
+    </pre>
+
+    <h2>2) Switch Between Branches</h2>
+    <p>Switch to an existing branch:</p>
+    <pre>
+git switch feature-ui
+# (older syntax) git checkout feature-ui
+    </pre>
+    <p>Switch back to <code>main</code>:</p>
+    <pre>
+git switch main
+# (older syntax) git checkout main
+    </pre>
+
+    <h2>3) Merge a Branch</h2>
+    <p>Merge changes from a feature branch into <code>main</code>:</p>
+    <pre>
+# Make sure you're on the target branch (where you want the result)
+git switch main
+git pull
+
+# Merge the source branch into main
+git merge feature-ui
+    </pre>
+    <p><b>Notes:</b></p>
+    <ul>
+        <li>If Git can fast-forward, it will just move <code>main</code> forward.</li>
+        <li>If there are conflicts, Git will pause the merge so you can resolve files, then:</li>
+    </ul>
+    <pre>
+# After fixing conflicts in files:
+git add .
+git commit        # completes the merge (if not auto-committed)
+    </pre>
+    <p>Optional: create a merge commit even if fast-forward is possible:</p>
+    <pre>
+git merge --no-ff feature-ui
+    </pre>
+
+    <h2>4) Delete a Branch</h2>
+    <p>Delete a local branch (after merging or if no longer needed):</p>
+    <pre>
+# Safe delete (refuses if branch has unmerged commits)
+git branch -d feature-ui
+
+# Force delete (use with caution)
+git branch -D feature-ui
+    </pre>
+    <p>Delete a remote branch on origin (GitHub/GitLab):</p>
+    <pre>
+git push origin --delete feature-ui
+# (alternative)
+git push origin :feature-ui
+    </pre>
+    <p>Clean up stale remote-tracking branches locally:</p>
+    <pre>
+git fetch --prune
+# or
+git fetch -p
+    </pre>
+
+    <h2>Helpful Commands</h2>
+    <pre>
+# List local branches
+git branch
+
+# List remote branches
+git branch -r
+
+# List all (local + remote)
+git branch -a
+
+# Rename current branch
+git branch -m new-name
+
+# See current branch and status
+git status
+
+# Show a compact history graph
+git log --oneline --graph --decorate --all
+    </pre>
+
+    <h2>Suggested Workflow</h2>
+    <pre>
+# 1) Start from main
+git switch main
+git pull
+
+# 2) Create and switch to feature branch
+git switch -c feature-login
+
+# 3) Work & commit on feature branch
+git add .
+git commit -m "Add login UI"
+
+# 4) Merge back into main
+git switch main
+git pull
+git merge feature-login
+
+# 5) Push and delete the feature branch
+git push
+git branch -d feature-login
+git push origin --delete feature-login   # optional
+    </pre>
+
+    <h2>Tips</h2>
+    <ul>
+        <li>Always <code>git pull</code> latest changes into <code>main</code> before creating a feature branch.</li>
+        <li>Keep feature branches small and focused; merge back frequently.</li>
+        <li>Use meaningful branch names like <code>feature/login</code>, <code>bugfix/payment-timeout</code>,
+            <code>hotfix/production-crash</code>.
+        </li>
+        <li>Prefer <code>git revert</code> on shared branches if you need a safe undo without rewriting history.</li>
+    </ul>
+</body>
+
+</html>
+
