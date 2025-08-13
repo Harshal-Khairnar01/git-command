@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Git Aliases - Local & Global</title>
+</head>
+<body>
+  <h1>Creating Git Aliases</h1>
+  <p>
+    Git aliases let you create shortcuts for frequently used Git commands.  
+    You can set them <b>globally</b> (for all repositories) or <b>locally</b> (for one repository only).
+  </p>
+
+  <h2>1. Global Aliases</h2>
+  <p>These apply to all Git repositories on your system.</p>
+  <pre>
+# Syntax
+git config --global alias.&lt;shortcut&gt; '&lt;command&gt;'
+
+# Examples
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.cm 'commit -m'
+  </pre>
+  <p>
+    After setting these, you can use:
+    <br><code>git st</code> instead of <code>git status</code><br>
+    <code>git co main</code> instead of <code>git checkout main</code>
+  </p>
+
+  <h2>2. Local Aliases</h2>
+  <p>These apply only to the repository where you set them.</p>
+  <pre>
+# Navigate to your repository
+cd my-project
+
+# Syntax
+git config alias.&lt;shortcut&gt; '&lt;command&gt;'
+
+# Example
+git config alias.last 'log -1 HEAD'
+  </pre>
+  <p>
+    Now <code>git last</code> will show the latest commit in that repository only.
+  </p>
+
+  <h2>3. View Existing Aliases</h2>
+  <pre>
+# Global aliases
+git config --global --list | grep alias
+
+# Local aliases
+git config --list | grep alias
+  </pre>
+
+  <h2>4. Remove an Alias</h2>
+  <pre>
+# Global
+git config --global --unset alias.st
+
+# Local
+git config --unset alias.last
+  </pre>
+
+  <h2>Tips</h2>
+  <ul>
+    <li>Aliases cannot override built-in Git commands.</li>
+    <li>For complex commands, wrap them in quotes, e.g.:
+      <pre>git config --global alias.hist "log --oneline --graph --decorate --all"</pre>
+    </li>
+    <li>Aliases are stored in:
+      <ul>
+        <li><b>Global:</b> <code>~/.gitconfig</code></li>
+        <li><b>Local:</b> <code>.git/config</code> inside the repository</li>
+      </ul>
+    </li>
+  </ul>
+</body>
+</html>
