@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Understanding git reset</title>
+</head>
+<body>
+  <h1>What is <code>git reset</code>?</h1>
+  <p>
+    The <code>git reset</code> command moves the current branch's HEAD to a specified commit.  
+    It can modify the staging area, the working directory, or both — depending on the mode used.
+  </p>
+
+  <h2>Why use it?</h2>
+  <ul>
+    <li>To undo commits or changes locally.</li>
+    <li>To remove unwanted commits before pushing.</li>
+    <li>To unstage files without losing changes.</li>
+  </ul>
+
+  <h2>Modes of git reset</h2>
+
+  <h3>1. <code>--soft</code></h3>
+  <pre>
+git reset --soft &lt;commit-hash&gt;
+  </pre>
+  <p>Moves HEAD to the given commit, keeps changes staged (in index).</p>
+
+  <h3>2. <code>--mixed</code> (default)</h3>
+  <pre>
+git reset --mixed &lt;commit-hash&gt;
+# or simply:
+git reset &lt;commit-hash&gt;
+  </pre>
+  <p>Moves HEAD to the given commit, unstages changes but keeps them in working directory.</p>
+
+  <h3>3. <code>--hard</code></h3>
+  <pre>
+git reset --hard &lt;commit-hash&gt;
+  </pre>
+  <p>Moves HEAD to the given commit, discards all staged and working directory changes.</p>
+
+  <h2>Examples</h2>
+  <pre>
+# View commit history
+git log --oneline
+
+# Go back to previous commit but keep changes staged
+git reset --soft HEAD~1
+
+# Go back and unstage changes
+git reset HEAD~1
+
+# Go back and discard all changes
+git reset --hard HEAD~1
+  </pre>
+
+  <h2>Important Notes</h2>
+  <ul>
+    <li><b>--hard</b> will permanently delete changes not committed — use carefully.</li>
+    <li><code>git reset</code> changes commit history; avoid using it on shared/public branches.</li>
+    <li>Use <code>git reflog</code> to recover commits if you reset by mistake.</li>
+  </ul>
+
+  <h2>Difference Between reset, revert, and restore</h2>
+  <pre>
+git reset   # Move HEAD to an earlier commit, can modify history (dangerous in shared repos)
+git revert  # Create a new commit that undoes an earlier commit (safe in shared repos)
+git restore # Restore file contents from commit or discard changes
+  </pre>
+</body>
+</html>
