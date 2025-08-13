@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Understanding git restore</title>
+</head>
+
+<body>
+    <h1>What is <code>git restore</code>?</h1>
+    <p>
+        The <code>git restore</code> command is used to restore working directory files
+        to a previous state.
+        It can discard changes in files, restore them from the last commit, or even unstage files.
+    </p>
+
+    <h2>Basic Usage</h2>
+
+    <h3>1. Restore a single file to last committed version</h3>
+    <pre>
+git restore filename.txt
+  </pre>
+    <p>This replaces the file with its version from the last commit.</p>
+
+    <h3>2. Restore multiple files</h3>
+    <pre>
+git restore file1.txt file2.txt
+  </pre>
+
+    <h3>3. Restore an entire folder</h3>
+    <pre>
+git restore src/
+  </pre>
+
+    <h3>4. Restore all changed files in the working directory</h3>
+    <pre>
+git restore .
+  </pre>
+
+    <h2>Restoring staged changes</h2>
+    <p>If you already staged changes with <code>git add</code> but want to unstage them:</p>
+    <pre>
+git restore --staged filename.txt
+  </pre>
+    <p>Now the file remains modified in the working directory but is no longer staged for commit.</p>
+
+    <h2>Restoring to a specific commit</h2>
+    <pre>
+git restore --source &lt;commit-hash&gt; filename.txt
+  </pre>
+    <p>This brings back the file as it was in the given commit.</p>
+
+    <h2>Important Notes</h2>
+    <ul>
+        <li>Changes restored this way are <b>lost</b> if they are not committed anywhere.</li>
+        <li>Use with caution — there is no undo unless you have the changes saved in another commit or stash.</li>
+        <li><code>git restore</code> was introduced in Git 2.23 (Aug 2019) to simplify commands like
+            <code>git checkout -- file</code>.
+        </li>
+    </ul>
+
+    <h2>Example Workflow</h2>
+    <pre>
+# You modify a file
+echo "new content" >> hello.txt
+
+# Check status
+git status
+# hello.txt is modified
+
+# Discard changes
+git restore hello.txt
+
+# Now hello.txt is back to its last committed state
+  </pre>
+</body>
+
+</html>
