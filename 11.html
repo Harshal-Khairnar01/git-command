@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Clone Command - Full Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        h1 {
+            color: #24292e;
+        }
+
+        pre {
+            background: #24292e;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .note {
+            background-color: #e7f3ff;
+            border-left: 5px solid #2196F3;
+            padding: 10px;
+            margin-top: 15px;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Git Clone Command</h1>
+
+    <p>
+        The <code>git clone</code> command is used to create a copy of an existing Git repository from a remote source
+        to your local machine.
+        It not only downloads the files but also copies the entire Git history and branch structure, so you can work
+        with the repository fully offline.
+    </p>
+
+    <h2>Syntax:</h2>
+    <pre>git clone &lt;repository-url&gt;</pre>
+
+    <h2>Example:</h2>
+    <pre>git clone https://github.com/user/repository.git</pre>
+
+    <h2>Why Use <code>git clone</code>?</h2>
+    <ul>
+        <li>To get a **full local copy** of a repository, including its history, commits, and branches.</li>
+        <li>To collaborate on a project by contributing changes back to the original repo.</li>
+        <li>To quickly set up a working environment for development.</li>
+    </ul>
+
+    <h2>Why Not Just Download ZIP?</h2>
+    <ul>
+        <li>ZIP only gives you the **current state of files** – no commit history, no branches.</li>
+        <li>With ZIP, you cannot push changes back to the remote repo.</li>
+        <li>Git clone allows continuous sync with the remote repository (pull, push, fetch).</li>
+    </ul>
+
+    <h2>Types of Clone URLs:</h2>
+    <h3>1. HTTPS URL</h3>
+    <pre>git clone https://github.com/user/repository.git</pre>
+    <ul>
+        <li>Easy to use — works anywhere with internet access.</li>
+        <li>Requires username/password or personal access token for pushing changes.</li>
+        <li>Better for beginners.</li>
+    </ul>
+
+    <h3>2. SSH URL</h3>
+    <pre>git clone git@github.com:user/repository.git</pre>
+    <ul>
+        <li>Requires setting up SSH keys on your system and Git hosting service.</li>
+        <li>No need to enter credentials each time for push/pull after setup.</li>
+        <li>Preferred for frequent collaborators.</li>
+    </ul>
+
+    <h2>Useful Options:</h2>
+    <ul>
+        <li><code>git clone --branch branch_name &lt;url&gt;</code> → Clone a specific branch.</li>
+        <li><code>git clone --depth 1 &lt;url&gt;</code> → Shallow clone with limited history (faster, smaller size).
+        </li>
+        <li><code>git clone &lt;url&gt; custom_folder</code> → Clone into a specific folder name.</li>
+    </ul>
+
+    <h2>Step-by-Step Workflow:</h2>
+    <pre>
+# 1. Copy the repository URL from GitHub/GitLab/Bitbucket
+# 2. Use git clone
+git clone https://github.com/user/repository.git
+
+# 3. Navigate into the cloned repo
+cd repository
+
+# 4. Check branches and history
+git branch -a
+git log --oneline
+    </pre>
+
+    <div class="note">
+        <strong>Tip:</strong> If you plan to contribute regularly, set up SSH cloning to avoid entering credentials
+        repeatedly.
+    </div>
+
+</body>
+
+</html>
