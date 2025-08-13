@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Understanding git revert</title>
+</head>
+<body>
+  <h1>What is <code>git revert</code>?</h1>
+  <p>
+    The <code>git revert</code> command creates a new commit that undoes the changes
+    introduced by a previous commit.  
+    Unlike <code>git reset</code>, it does not delete history — instead, it adds a safe "undo" commit.
+  </p>
+
+  <h2>Why use it?</h2>
+  <ul>
+    <li>To safely undo changes in a shared/public branch.</li>
+    <li>To preserve commit history for better tracking.</li>
+    <li>To avoid rewriting history (important when others have pulled your branch).</li>
+  </ul>
+
+  <h2>Basic Usage</h2>
+
+  <h3>1. Revert a specific commit</h3>
+  <pre>
+git revert &lt;commit-hash&gt;
+  </pre>
+  <p>This will open the default editor to write a commit message for the revert.</p>
+
+  <h3>2. Revert without opening an editor</h3>
+  <pre>
+git revert &lt;commit-hash&gt; --no-edit
+  </pre>
+
+  <h3>3. Revert multiple commits</h3>
+  <pre>
+git revert &lt;oldest-commit&gt;^..&lt;newest-commit&gt;
+  </pre>
+
+  <h3>4. Revert the latest commit</h3>
+  <pre>
+git revert HEAD
+  </pre>
+
+  <h2>Example Workflow</h2>
+  <pre>
+# View commit history
+git log --oneline
+
+# Suppose the commit hash is abc123
+git revert abc123
+
+# Git will create a new commit that undoes abc123
+  </pre>
+
+  <h2>Important Notes</h2>
+  <ul>
+    <li><b>Revert is non-destructive</b> — it doesn’t remove commits.</li>
+    <li>Good for undoing changes in branches used by others.</li>
+    <li>If there are conflicts during revert, Git will ask you to resolve them before committing.</li>
+    <li>For local private branches, <code>git reset</code> might be faster if you don't care about keeping history.</li>
+  </ul>
+
+  <h2>Difference Between Revert and Reset</h2>
+  <pre>
+git revert   # Creates a new commit that undoes previous changes
+git reset    # Moves HEAD to a previous commit, removing commits from history (dangerous in shared repos)
+  </pre>
+</body>
+</html>
