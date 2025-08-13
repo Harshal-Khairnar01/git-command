@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Understanding .gitignore</title>
+</head>
+
+<body>
+    <h1>What is <code>.gitignore</code>?</h1>
+    <p>
+        The <code>.gitignore</code> file tells Git which files or folders to ignore.
+        Ignored files are not tracked, committed, or pushed to the remote repository.
+    </p>
+
+    <h2>Why use it?</h2>
+    <ul>
+        <li>Prevent sensitive data (e.g., passwords, API keys) from being uploaded.</li>
+        <li>Ignore large or unnecessary files like <code>node_modules</code> or build outputs.</li>
+        <li>Keep the repository clean and focused on source code.</li>
+    </ul>
+
+    <h2>Common .gitignore Rules</h2>
+
+    <h3>1. Ignore a specific file</h3>
+    <pre>
+secret.txt
+  </pre>
+
+    <h3>2. Ignore a specific folder</h3>
+    <pre>
+node_modules/
+build/
+dist/
+  </pre>
+
+    <h3>3. Ignore all files with a specific extension</h3>
+    <pre>
+*.log    # all log files
+*.tmp    # all temporary files
+*.zip    # all zip files
+  </pre>
+
+    <h3>4. Ignore files in any folder matching a pattern</h3>
+    <pre>
+**/*.log   # any .log file in any subfolder
+**/*.class # Java compiled files anywhere
+  </pre>
+
+    <h3>5. Ignore multiple items at once</h3>
+    <pre>
+# Folders
+node_modules/
+build/
+
+# Files
+secret.txt
+config.json
+
+# Extensions
+*.log
+*.tmp
+  </pre>
+
+    <h3>6. Negate a pattern (force track a file)</h3>
+    <p>
+        Use <code>!</code> before the file name to keep it tracked even if its pattern is ignored.
+    </p>
+    <pre>
+*.log
+!important.log
+  </pre>
+
+    <h2>Important Notes</h2>
+    <ul>
+        <li>If a file is already tracked by Git, adding it to <code>.gitignore</code> won’t stop tracking it.</li>
+        <li>To untrack a file:
+            <pre>git rm --cached filename</pre>
+        </li>
+        <li><code>.gitignore</code> should be committed so everyone working on the repo ignores the same files.</li>
+    </ul>
+
+    <h2>Example Project Structure</h2>
+    <pre>
+project/
+  ├── index.js
+  ├── package.json
+  ├── node_modules/     # Ignored
+  ├── .env              # Ignored
+  ├── error.log         # Ignored
+  └── .gitignore
+  </pre>
+
+</body>
+
+</html>
