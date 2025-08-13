@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Git push -u Example</title>
+</head>
+
+<body>
+    <h1>Git push -u Example</h1>
+    <p>The <code>-u</code> flag sets the upstream branch so you can push and pull without specifying branch name every
+        time.</p>
+
+    <h2>Without <code>-u</code></h2>
+    <pre>
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/you/repo.git
+git push origin main
+
+# Future pushes
+git push origin main
+git pull origin main
+  </pre>
+
+    <h2>With <code>-u</code></h2>
+    <pre>
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/you/repo.git
+git push -u origin main   # sets upstream tracking
+
+# Future pushes (short form)
+git push
+git pull
+  </pre>
+
+    <p><b>Note:</b> You can use <code>-u</code> with any branch, not just <code>main</code>.</p>
+</body>
+
+</html>
