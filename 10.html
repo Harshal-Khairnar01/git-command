@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Commit --amend Explained</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        h1 {
+            color: #1e88e5;
+            text-align: center;
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+        }
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #d6336c;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .note {
+            background: #fff3cd;
+            padding: 10px;
+            border-left: 5px solid #ffca28;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Understanding <code>git commit --amend</code></h1>
+
+    <div class="section">
+        <h2>📌 What is it?</h2>
+        <p>The <code>git commit --amend</code> command allows you to modify the most recent commit. 
+        You can use it to:</p>
+        <ul>
+            <li>Change the commit message.</li>
+            <li>Add or remove files from the last commit.</li>
+            <li>Combine changes without creating a new commit.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>⚙️ How to Use</h2>
+        <pre>
+# Change last commit message
+git commit --amend -m "New commit message"
+
+# Add missing file to last commit
+git add missing_file.txt
+git commit --amend --no-edit
+
+# Both change message and files
+git add file.txt
+git commit --amend -m "Updated commit with new file"
+        </pre>
+    </div>
+
+    <div class="section">
+        <h2>🔍 Example</h2>
+        <pre>
+# Step 1: Make a commit
+git commit -m "Initial commit"
+
+# Step 2: Realize you forgot a file
+git add forgotten.txt
+
+# Step 3: Amend the previous commit
+git commit --amend --no-edit
+        </pre>
+    </div>
+
+    <div class="section">
+        <h2>✅ Pros</h2>
+        <ul>
+            <li>Fix mistakes in the last commit without creating new commits.</li>
+            <li>Keep commit history clean.</li>
+            <li>Quickly update recent work.</li>
+        </ul>
+        <h2>⚠️ Cons</h2>
+        <ul>
+            <li>Don’t amend commits that are already pushed to a shared branch — it rewrites history.</li>
+            <li>May cause conflicts if others have already pulled your commit.</li>
+        </ul>
+    </div>
+
+    <div class="section note">
+        <strong>Note:</strong> Use <code>git commit --amend</code> only for your local commits or before pushing to remote.
+    </div>
+
+</body>
+</html>
