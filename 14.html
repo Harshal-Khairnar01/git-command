@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deploy Vite React App to GitHub Pages</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    pre {
+      background: #222;
+      color: #0f0;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    code {
+      background: #eee;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .note {
+      background: #ffffcc;
+      padding: 10px;
+      border-left: 4px solid orange;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚀 Deploy Vite React App to GitHub Pages</h1>
+  <p>This guide walks you through deploying a static Vite + React app to GitHub Pages.</p>
+
+  <h2>1️⃣ Create & Initialize Project</h2>
+  <pre>npm create vite@latest my-app
+cd my-app
+npm install</pre>
+
+  <h2>2️⃣ Test Locally</h2>
+  <pre>npm run dev</pre>
+  <p>Open the local link shown in the terminal to verify your app works.</p>
+
+  <h2>3️⃣ Update <code>vite.config.js</code></h2>
+  <p>Set the <code>base</code> to your repository name:</p>
+  <pre>import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  base: '/your-repo-name/', // 👈 Replace with your repo name
+});
+</pre>
+
+  <h2>4️⃣ Push to GitHub</h2>
+  <pre>git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/&lt;your-username&gt;/&lt;your-repo-name&gt;.git
+git push -u origin main</pre>
+
+  <h2>5️⃣ Install GitHub Pages Deploy Tool</h2>
+  <pre>npm install gh-pages --save-dev</pre>
+
+  <h2>6️⃣ Update <code>package.json</code></h2>
+  <p>Add these lines:</p>
+  <pre>
+"homepage": "https://&lt;your-username&gt;.github.io/&lt;your-repo-name&gt;/",
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+  "deploy": "gh-pages -d dist"
+}
+</pre>
+
+  <div class="note">
+    🔹 <strong>Tip:</strong> The <code>-d dist</code> tells GitHub Pages to serve your built files from the <code>dist</code> folder.
+  </div>
+
+  <h2>7️⃣ Build & Deploy</h2>
+  <pre>
+npm run build
+npm run deploy
+  </pre>
+
+  <h2>8️⃣ Enable GitHub Pages</h2>
+  <ul>
+    <li>Go to your repository on GitHub.</li>
+    <li>Navigate to <strong>Settings → Pages</strong>.</li>
+    <li>Select branch <code>gh-pages</code> as the source.</li>
+    <li>Save, and wait for 1–2 minutes.</li>
+  </ul>
+
+  <h2>✅ Done!</h2>
+  <p>Your site will be live at:  
+  <code>https://&lt;your-username&gt;.github.io/&lt;your-repo-name&gt;/</code></p>
+
+</body>
+</html>
