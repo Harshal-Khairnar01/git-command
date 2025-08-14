@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create & Merge Pull Requests - GitHub Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background: #24292f;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        main {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #24292f;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+        ol, ul {
+            margin-left: 20px;
+        }
+        .note {
+            background: #fffae5;
+            border-left: 4px solid #ffd33d;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #24292f;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GitHub Guide: Creating & Merging Pull Requests</h1>
+    </header>
+    <main>
+        <section>
+            <h2>1. Fork & Clone Repository</h2>
+            <ol>
+                <li>Open the repository you want to contribute to on GitHub.</li>
+                <li>Click <strong>Fork</strong> (top right corner) to copy it to your account.</li>
+                <li>Clone your forked repo to your local machine:
+                    <pre>git clone https://github.com/your-username/repo-name.git</pre>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>2. Create a New Branch</h2>
+            <ol>
+                <li>Navigate to your project folder:
+                    <pre>cd repo-name</pre>
+                </li>
+                <li>Create a new branch for your feature or fix:
+                    <pre>git checkout -b feature-branch-name</pre>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>3. Make Changes & Commit</h2>
+            <ol>
+                <li>Edit files and make your changes.</li>
+                <li>Stage the changes:
+                    <pre>git add .</pre>
+                </li>
+                <li>Commit the changes:
+                    <pre>git commit -m "Add your commit message here"</pre>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>4. Push Changes to GitHub</h2>
+            <ol>
+                <li>Push your branch to your GitHub fork:
+                    <pre>git push origin feature-branch-name</pre>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>5. Create Pull Request (PR)</h2>
+            <ol>
+                <li>Go to the original repository on GitHub.</li>
+                <li>Click <strong>Pull Requests</strong> → <strong>New Pull Request</strong>.</li>
+                <li>Select your branch from the <strong>compare</strong> dropdown.</li>
+                <li>Write a clear title and description for your changes.</li>
+                <li>Click <strong>Create Pull Request</strong>.</li>
+            </ol>
+            <div class="note">
+                💡 Tip: Always explain <em>why</em> you made these changes, not just <em>what</em> you changed.
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Review & Merge Pull Request</h2>
+            <ol>
+                <li>The repository maintainer will review your changes.</li>
+                <li>If there are requested changes, update your branch and push again:
+                    <pre>git add .  
+git commit -m "Address review feedback"  
+git push origin feature-branch-name</pre>
+                </li>
+                <li>Once approved, the PR can be merged using:
+                    <ul>
+                        <li><strong>Merge Pull Request</strong> (keeps history)</li>
+                        <li><strong>Squash & Merge</strong> (combines commits)</li>
+                        <li><strong>Rebase & Merge</strong> (linear history)</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>7. Clean Up Branch</h2>
+            <ol>
+                <li>Delete the branch locally:
+                    <pre>git branch -d feature-branch-name</pre>
+                </li>
+                <li>Delete the branch on GitHub:
+                    <pre>git push origin --delete feature-branch-name</pre>
+                </li>
+            </ol>
+        </section>
+    </main>
+   
+</body>
+</html>
