@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Deploy a Static Website to GitHub Pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background: #24292f;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        main {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #24292f;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            overflow-x: auto;
+            border-radius: 6px;
+        }
+
+        img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+
+        ol,
+        ul {
+            margin-left: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            background: #f1f1f1;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h3>Deploying a Static Website to GitHub Pages</h3>
+    </header>
+    <main>
+        <h2>What You Need</h2>
+        <ul>
+            <li>A GitHub account (<a href="https://github.com" target="_blank">Sign up here</a>)</li>
+            <li>Git installed on your computer (<a href="https://git-scm.com/" target="_blank">Download Git</a>)</li>
+            <li>Your static website files (HTML, CSS, JS)</li>
+        </ul>
+
+        <h2>Steps to Deploy</h2>
+        <ol>
+            <li>
+                <strong>Create a Repository</strong>
+                <ul>
+                    <li>Go to <a href="https://github.com" target="_blank">GitHub</a> and click <strong>New</strong>
+                        repository.</li>
+                    <li>Give it a name (e.g., <code>my-website</code>) and make it public.</li>
+                </ul>
+
+            </li>
+
+            <li>
+                <strong>Initialize Git and Push Your Code</strong>
+                <pre>
+cd path/to/your/project
+git init
+git remote add origin https://github.com/your-username/my-website.git
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+        </pre>
+            </li>
+
+            <li>
+                <strong>Enable GitHub Pages</strong>
+                <ul>
+                    <li>Go to your repository’s <strong>Settings</strong> → <strong>Pages</strong>.</li>
+                    <li>Under <strong>Source</strong>, select <code>main</code> branch and <code>/root</code> folder.
+                    </li>
+                    <li>Click <strong>Save</strong>.</li>
+                </ul>
+
+            </li>
+
+            <li>
+                <strong>Access Your Website</strong>
+                <ul>
+                    <li>After a few minutes, your website will be live at:
+                        <br><code>https://your-username.github.io/my-website/</code>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>Tips</h2>
+        <ul>
+            <li>Keep your project in the <code>main</code> branch for simpler deployment.</li>
+            <li>You can update the site by committing and pushing new changes.</li>
+            <li>For custom domains, configure them under the <strong>Pages</strong> settings.</li>
+        </ul>
+    </main>
+    <footer>
+        Created for beginners – Learn, Deploy, Share 🚀
+    </footer>
+</body>
+
+</html>
