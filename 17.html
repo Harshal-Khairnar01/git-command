@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Stash Command - Book Style</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: #d6c8b1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .book {
+            width: 90%;
+            max-width: 1400px;
+            background: #fdfaf4;
+            display: flex;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .page {
+            flex: 1;
+            padding: 40px 30px;
+            box-sizing: border-box;
+            column-gap: 40px;
+            line-height: 1.6;
+        }
+
+        .left {
+            border-right: 2px solid #c1b094;
+        }
+
+        h1, h2 {
+            color: #4b3f2f;
+        }
+
+        code, pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 8px;
+            border-radius: 5px;
+            display: block;
+            white-space: pre-wrap;
+            font-family: Consolas, monospace;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffcc00;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="book">
+        <!-- Left Page -->
+        <div class="page left">
+            <h1>Understanding <code>git stash</code></h1>
+            <p>
+                The <code>git stash</code> command temporarily saves (or "stashes") your uncommitted changes in a safe place,
+                so you can work on something else without losing your progress.
+            </p>
+
+            <h2>Why use Git Stash?</h2>
+            <ul>
+                <li>You want to switch branches, but have uncommitted changes.</li>
+                <li>You want to test something quickly without committing unfinished work.</li>
+                <li>You want to clean your working directory without deleting changes.</li>
+            </ul>
+
+            <h2>Basic Usage</h2>
+            <pre><code>git stash</code></pre>
+            <p>This saves your uncommitted changes and clears them from your working directory.</p>
+
+            <h2>View Stashes</h2>
+            <pre><code>git stash list</code></pre>
+            <p>Shows all the stashes you've saved.</p>
+
+            <h2>Apply a Stash</h2>
+            <pre><code>git stash apply</code></pre>
+            <p>Applies the most recent stash without deleting it from the stash list.</p>
+        </div>
+
+        <!-- Right Page -->
+        <div class="page right">
+            <h2>Apply a Specific Stash</h2>
+            <pre><code>git stash apply stash@{2}</code></pre>
+            <p>Replace <code>2</code> with the index of the stash you want to apply.</p>
+
+            <h2>Pop a Stash</h2>
+            <pre><code>git stash pop</code></pre>
+            <p>Applies the most recent stash <strong>and removes it</strong> from the stash list.</p>
+
+            <h2>Drop a Stash</h2>
+            <pre><code>git stash drop stash@{0}</code></pre>
+            <p>Deletes a specific stash without applying it.</p>
+
+            <h2>Clear All Stashes</h2>
+            <pre><code>git stash clear</code></pre>
+            <p>Removes all stored stashes.</p>
+
+            <div class="note">
+                <strong>Note:</strong> Stashes are stored locally and are not shared between repositories or branches.
+            </div>
+
+            <h2>Example Workflow</h2>
+            <pre><code># You are working on feature-branch
+git stash          # Save changes
+git checkout main  # Switch to main branch
+# ... do some work ...
+git checkout feature-branch
+git stash pop      # Get your changes back
+</code></pre>
+        </div>
+    </div>
+</body>
+
+</html>
