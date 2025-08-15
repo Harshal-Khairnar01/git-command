@@ -6,9 +6,10 @@
     <title>Git Diff Command Explanation</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
+           
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             background-color: #f4f4f4;
         }
         h1, h2 {
@@ -40,8 +41,35 @@
     </style>
 </head>
 <body>
-
-    <h1>Understanding <code>git diff</code></h1>
+ <nav style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#04060a;color:white; overflow-x: scroll; ">
+    <div style="display:flex;gap:20px;">
+      <a href="/first.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">push in github</a>
+      <a href="/second.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">Git workflow</a>
+      <a href="/third.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;"> -u in push</a>
+      <a href="/fourth.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">gitignore</a>
+      <a href="/5fifth.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git restore</a>
+      <a href="/6six.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git revert</a>
+      <a href="/7seventh.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git reset</a>
+      <a href="/8eighth.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git Aliases</a>
+      <a href="/9ninth.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git Branch</a>
+      <a href="/10.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git amend</a>
+      <a href="/11.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git clone</a>
+      <a href="/12.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">pull & fetch</a>
+      <a href="/13.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">deploy 1</a>
+      
+      <a href="/14.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">deploy 2</a>
+      <a href="/15.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">Diff cmnd</a>
+      <a href="/16.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">skip stage area</a>
+      <a href="/17.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git stash</a>
+      <a href="/18.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">Collaboration</a>
+      <a href="/19.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">pull request</a>
+      <a href="/20.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">README.md</a>
+     
+      
+    </div>
+  </nav>
+   <div style="padding: 0px 40px; line-height: 1.6;">
+     <h1>Understanding <code>git diff</code></h1>
     <div class="card">
         <h2>1. What is <code>git diff</code>?</h2>
         <p>The <code>git diff</code> command shows the changes between commits, branches, files, and more. It is commonly used to see what has changed in your working directory compared to the staging area or a commit.</p>
@@ -84,6 +112,18 @@ index e69de29..4b825dc 100644
             <li>Remember: <code>git diff</code> by default does NOT show staged changes unless you add <code>--staged</code>.</li>
         </ul>
     </div>
+   </div>
+
+    <script>
+        const currentPage = window.location.pathname.split("/").pop();
+        document.querySelectorAll("nav a").forEach(link => {
+            const linkPage = link.getAttribute("href").split("/").pop();
+            if (linkPage === currentPage) {
+                link.style.backgroundColor = "#2563eb";
+                link.style.fontWeight = "bold";
+            }
+        });
+    </script>
 
 </body>
 </html>

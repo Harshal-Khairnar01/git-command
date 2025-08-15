@@ -4,11 +4,45 @@
 <head>
     <meta charset="UTF-8" />
     <title>Git Branch Basics: Create, Switch, Merge, Delete</title>
+ <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 
 <body>
+     <nav style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#04060a;color:white; overflow-x: scroll; ">
+    <div style="display:flex;gap:20px;">
+      <a href="/first.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">push in github</a>
+      <a href="/second.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">Git workflow</a>
+      <a href="/third.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;"> -u in push</a>
+      <a href="/fourth.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">gitignore</a>
+      <a href="/5fifth.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git restore</a>
+      <a href="/6six.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git revert</a>
+      <a href="/7seventh.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git reset</a>
+      <a href="/8eighth.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git Aliases</a>
+      <a href="/9ninth.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git Branch</a>
+      <a href="/10.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git amend</a>
+      <a href="/11.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git clone</a>
+      <a href="/12.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">pull & fetch</a>
+      <a href="/13.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">deploy 1</a>
+      <a href="/14.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">deploy 2</a>
+     
+      <a href="/15.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">Diff cmnd</a>
+      <a href="/16.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">skip stage area</a>
+      <a href="/17.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git stash</a>
+      <a href="/18.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">Collaboration</a>
+      <a href="/19.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">pull request</a>
+      <a href="/20.html" style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">README.md</a>
+     
+      
+    </div>
+  </nav>
 
-    <div>
+    <div style="padding: 0 40px;">
         <h1>Git Branch – Overview</h1>
 
         <h2>1. What is a Branch in Git?</h2>
@@ -192,6 +226,16 @@ git push origin --delete feature-login   # optional
         <li>Prefer <code>git revert</code> on shared branches if you need a safe undo without rewriting history.</li>
     </ul>
     <h1>This is all about branch, from first branch of nine, I do it for concept of stash also file 17</h1>
+     <script>
+        const currentPage = window.location.pathname.split("/").pop();
+        document.querySelectorAll("nav a").forEach(link => {
+            const linkPage = link.getAttribute("href").split("/").pop();
+            if (linkPage === currentPage) {
+                link.style.backgroundColor = "#2563eb";
+                link.style.fontWeight = "bold";
+            }
+        });
+    </script>
 </body>
 
 </html>

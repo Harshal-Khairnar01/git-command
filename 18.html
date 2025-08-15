@@ -5,132 +5,157 @@
     <meta charset="UTF-8" />
     <title>How to Collaborate on a GitHub Repository</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <style>
-        :root {
-            --bg: #f6f8fa;
-            --text: #24292f;
-            --card: #ffffff;
-            --muted: #57606a;
-            --accent: #0969da;
-        }
-
-        * {
-            box-sizing: border-box
-        }
-
         body {
             margin: 0;
-            padding: 24px;
-            background: var(--bg);
-            color: var(--text);
-            font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-        }
-
-        h1,
-        h2 {
-            margin: 0 0 12px
-        }
-
-        h1 {
-            font-size: 28px
-        }
-
-        h2 {
-            font-size: 20px;
-            margin-top: 28px
-        }
-
-        p {
-            margin: 8px 0
+            padding: 0;
+            box-sizing: border-box;
         }
 
         .container {
-            max-width: 980px;
-            margin: 0 auto
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
         }
+
+        h1,
+        h2,
+        h3 {
+            color: #1b2b4f;
+            margin-bottom: 10px;
+        }
+
+        p.muted {
+            color: #666;
+            font-size: 14px;
+        }
+
 
         .card {
-            background: var(--card);
-            border: 1px solid #d0d7de;
-            border-radius: 10px;
-            padding: 18px;
-            margin: 14px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, .03);
-        }
-
-        code,
-        pre {
-            background: #0d1117;
-            color: #e6edf3;
+            background: #f8f9fa;
+            padding: 15px;
             border-radius: 8px;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
-        code {
-            padding: 2px 6px
+        .card.ok {
+            border-left: 5px solid green;
+            background: #e7f6e7;
         }
 
-        pre {
-            padding: 12px;
-            overflow: auto
+        .card.tip {
+            border-left: 5px solid #2563eb;
+            background: #e8f0ff;
         }
 
-        ul {
-            margin: 10px 0 0 18px
+        .card.danger {
+            border-left: 5px solid red;
+            background: #ffeaea;
         }
+
 
         .grid {
             display: grid;
-            gap: 14px;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         }
 
-        .muted {
-            color: var(--muted)
+
+        pre {
+            background: #222;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
         }
 
-        .tip {
-            background: #fff8c5;
-            border-left: 4px solid #e3b341
+        code {
+            background: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
         }
 
-        .danger {
-            background: #ffebe9;
-            border-left: 4px solid #cf222e
-        }
-
-        .ok {
-            background: #dafbe1;
-            border-left: 4px solid #2da44e
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none
-        }
-
-        a:hover {
-            text-decoration: underline
-        }
-
-        .kbd {
-            border: 1px solid #d0d7de;
-            border-bottom-width: 2px;
-            padding: 0 6px;
-            border-radius: 6px;
-            background: #fff;
-            font-family: inherit
-        }
 
         .hr {
-            height: 1px;
-            background: #d8dee4;
-            margin: 18px 0
+            height: 2px;
+            background: #ddd;
+            margin: 30px 0;
         }
     </style>
 </head>
 
 <body>
+    <nav
+        style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#04060a;color:white; overflow-x: scroll;  font-size: 15px; font-family: 'Times New Roman',">
+        <div style="display:flex;gap:20px;">
+            <a href="/first.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">push
+                in github</a>
+            <a href="/second.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">Git
+                workflow</a>
+            <a href="/third.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">
+                -u in push</a>
+            <a href="/fourth.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">gitignore</a>
+            <a href="/5fifth.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git
+                restore</a>
+            <a href="/6six.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git
+                revert</a>
+            <a href="/7seventh.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git
+                reset</a>
+            <a href="/8eighth.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git
+                Aliases</a>
+            <a href="/9ninth.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git
+                Branch</a>
+            <a href="/10.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git
+                amend</a>
+            <a href="/11.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git
+                clone</a>
+            <a href="/12.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">pull
+                & fetch</a>
+            <a href="/13.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">deploy
+                1</a>
+            <a href="/14.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">deploy
+                2</a>
+
+            <a href="/15.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">Diff
+                cmnd</a>
+            <a href="/16.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">skip
+                stage area</a>
+            <a href="/17.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">git
+                stash</a>
+            <a href="/18.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">Collaboration</a>
+            <a href="/19.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">pull
+                request</a>
+            <a href="/20.html"
+                style=" width: 100px; color:white;text-decoration:none; background-color: #1b2b4f; padding: 10px; border-radius: 40px;">README.md</a>
+
+
+        </div>
+    </nav>
     <div class="container">
         <h1>How to Collaborate on a GitHub Repository</h1>
         <p class="muted">A practical guide to roles, branching, issues, pull requests, reviews, and conflict resolution.
@@ -177,7 +202,8 @@ git commit -m "feat(login): add login form and validation"</pre>
                     <pre>git push -u origin feature/login-ui</pre>
                 </li>
                 <li><b>Open a Pull Request (PR)</b> on GitHub: compare <code>feature/login-ui</code> →
-                    <code>main</code>.</li>
+                    <code>main</code>.
+                </li>
             </ol>
             <div class="card ok">
                 <b>Tip:</b> Use prefixes like <code>feat/</code>, <code>fix/</code>, <code>chore/</code>, and
@@ -245,7 +271,8 @@ git push --force-with-lease</pre>
                 </div>
             </div>
             <p class="muted">Use <b>merge</b> for shared branches; <b>rebase</b> for cleaner history. Never rebase
-                <em>public</em> branches others are using.</p>
+                <em>public</em> branches others are using.
+            </p>
         </div>
 
         <div class="card">
@@ -253,7 +280,8 @@ git push --force-with-lease</pre>
             <ol>
                 <li>Run your merge/rebase; Git will pause on conflicts.</li>
                 <li>Open conflicted files and edit sections between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and
-                    <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</li>
+                    <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.
+                </li>
                 <li>Stage and continue:
                     <pre># For merge:
 git add .
@@ -359,6 +387,16 @@ git add . && git commit        # merge flow
 git rebase --continue          # rebase flow
     </pre>
     </div>
+    <script>
+        const currentPage = window.location.pathname.split("/").pop();
+        document.querySelectorAll("nav a").forEach(link => {
+            const linkPage = link.getAttribute("href").split("/").pop();
+            if (linkPage === currentPage) {
+                link.style.backgroundColor = "#2563eb";
+                link.style.fontWeight = "bold";
+            }
+        });
+    </script>
 </body>
 
 </html>
