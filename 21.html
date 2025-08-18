@@ -358,6 +358,47 @@ jobs:
         </pre>
         </div>
 
+
+        <div>
+            <h1>Job Concurrency</h1>
+            <p><b>Concurrency </b>in GitHub Actions means controlling how many workflow or job runs can execute at the
+                same time.</p>
+            <p>It helps prevent multiple runs from interfering with each other, especially in CI/CD pipelines.</p>
+            <b>Using it we can stop old commits from being deployed if a new commit is pushed.</b>
+            <h3>It helps you avoid:</h3>
+            <ul>
+                <li>Duplicate builds</li>
+                <li>Resource wastage</li>
+                <li>Conflicts when jobs write to the same environment or deployment</li>
+            </ul>
+            <pre>
+name: Deploy Next JS App
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: deploy
+      cancel-in-progress: true
+
+    steps: 
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.2 
+      - name: Install Dependencies
+        run: npm install
+      - name: Build Next JS App
+        run: npm run build
+      - name: Deploy App
+        run: echo "Deploying Next.js App..."
+
+        </pre>
+        </div>
+
     </div>
 
 
